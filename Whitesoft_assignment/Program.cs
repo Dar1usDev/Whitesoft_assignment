@@ -40,9 +40,8 @@ for (int i = 0; i < toDelete.Count; i++)
 
 string resultPath = Environment.CurrentDirectory;
 resultPath = resultPath.Remove(resultPath.IndexOf("\\bin"));
-Console.WriteLine(resultPath);
 
-using (FileStream fs = new($"\\result.json", FileMode.Create))
+using (FileStream fs = new($"{resultPath}\\result.json", FileMode.Create))
 {
     var options = new JsonSerializerOptions
     {
