@@ -1,23 +1,30 @@
-﻿namespace Whitesoft_assignment
+﻿using System.Text.Json.Serialization;
+
+namespace Whitesoft_assignment
 {
     /// <summary>
     /// Structure for replacement.json
     /// </summary>
     internal class ReplacementPair
     {
-        private string Key
-        {
-            get;
-        }
-        private string Value
+        [JsonPropertyName("replacement")]
+        public string Key
         {
             get;
         }
 
-        ReplacementPair(string key, string value)
+        [JsonPropertyName("source")]
+        public string Value
         {
-            Key = key; 
+            get;
+        }
+
+        public ReplacementPair(string key, string value)
+        {
+            Key = key;
             Value = value;
         }
+
+        public override string ToString() => $"{Key} {Value ?? "null"}";
     }
 }
